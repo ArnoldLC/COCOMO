@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Cocomo II</title>
+        <meta charset="utf-8">
+        <script src="jquery/jquery-3.1.1.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+    </head>
+    <body>
+        <header>
+            <div class="contenedor">
+                <nav class="nav-main">
+                    <ul>
+                        <li><a href="index.html">Básico</a></li>
+                        <li><a href="cocomoIntermedio.html">Intermedio</a></li>
+                        <li><a href="cocomoII.html">Cocomo II</a></li>                        
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <section>
+            <div class="contenedor contenedor-instrucciones">
+                <div class="titulo">
+                    <h1>Cocomo II</h1>
+                </div>
+                <div class="instruccion">
+                    <h2>Instrucciones</h2>
+                    <p>1. Ingresar miles de lineas de codigo (KLDC) y costo promedio mensual (CPM).</p>
+                    <p>2. Escoger conductores de escala.</p>
+                    <p>3. Escoger conductores de coste.</p>
+                    <p>4. Calcular.</p>
+                </div>
+            </div>
+
+            <div class="contenedor contenedor-entradas">
+                <div class="resultado">
+                    <div class="resultado-row">
+                        <div class="__resultado entradas">
+                            <input type="number" name="" id="kldc" placeholder="KLDC" required>
+                        </div>
+                        <div class="__resultado entradas">
+                            <input type="number" name="" id="salario" placeholder="CPM" required>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+
+            <div class="contenedor">
+                <div class="factores-escala"> 
+                    <h3>Factores de Escala</h3>
+                    <div class="factEscala-legend">
+                            <div class="factor">
+                                <p>PREC</p>
+                                <select id="prec">
+                                    <option value="6.20">Muy bajo</option>
+                                    <option value="4.96">Bajo</option>
+                                    <option value="3.72" selected>Nominal</option>
+                                    <option value="2.48">Alto</option>
+                                    <option value="1.24">Muy alto</option>
+                                    <option value="0.00">Extra alto</option>
+                                </select>
+                            </div>
+                            <div class="factor">
+                                <p>FLEX</p>
+                                <select id="flex">
+                                    <option value="5.07">Muy bajo</option>
+                                    <option value="4.05">Bajo</option>
+                                    <option value="3.04" selected>Nominal</option>
+                                    <option value="2.03">Alto</option>
+                                    <option value="1.01">Muy alto</option>
+                                    <option value="0.00">Extra alto</option>
+                                </select>
+                            </div>
+                            <div class="factor">
+                                <p>RESL</p>
+                                <select id="resl">
+                                    <option value="7.07">Muy bajo</option>
+                                    <option value="5.65">Bajo</option>
+                                    <option value="4.24" selected>Nominal</option>
+                                    <option value="2.83">Alto</option>
+                                    <option value="1.41">Muy alto</option>
+                                    <option value="0.00">Extra alto</option>
+                                </select>
+                            </div>
+                            <div class="factor">
+                                <p>TEAM</p>
+                                <select id="team">
+                                    <option value="5.48">Muy bajo</option>
+                                    <option value="4.38">Bajo</option>
+                                    <option value="3.29" selected>Nominal</option>
+                                    <option value="2.19">Alto</option>
+                                    <option value="1.10">Muy alto</option>
+                                    <option value="0.00">Extra alto</option>
+                                </select>
+                            </div>
+                            <div class="factor">
+                                <p>PMAT</p>
+                                <select id="pmat">
+                                    <option value="7.80">Muy bajo</option>
+                                    <option value="6.24">Bajo</option>
+                                    <option value="4.68" selected>Nominal</option>
+                                    <option value="3.12">Alto</option>
+                                    <option value="1.56">Muy alto</option>
+                                    <option value="0.00">Extra alto</option>
+                                </select>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenedor">
+                <div class="conductores-coste">
+                    <h3>Conductores de Coste</h3>
+                    <div class="producto">
+                        <fieldset>
+                        <legend>Atributos del producto</legend>
+                            <div class="producto__opt">
+                                <p>RSS</p>
+                                <select id="rss">
+                                    <option value="0.82">Muy bajo</option>
+                                    <option value="0.92">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="1.10">Alto</option>
+                                    <option value="1.26">Muy alto</option>
+                                </select>
+                            </div>
+                            <div class="producto__opt">
+                                <p>TBD</p>
+                                <select id="tbd">
+                                    <option value="0.90">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="1.14">Alto</option>
+                                    <option value="1.28">Muy alto</option>
+                                </select>
+                            </div>
+                            <div class="producto__opt">
+                                <p>CPR</p>
+                                <select id="cpr">
+                                    <option value="0.73">Muy bajo</option>
+                                    <option value="0.87">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="1.17">Alto</option>
+                                    <option value="1.34">Muy alto</option>
+                                    <option value="1.74">Extra alto</option>
+                                </select>
+                            </div>
+                            <div class="producto__opt">
+                                <p>RUSE</p>
+                                <select id="ruse">
+                                    <option value="0.95">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="1.07">Alto</option>
+                                    <option value="1.15">Muy alto</option>
+                                    <option value="1.24">Extra alto</option>
+                                </select>
+                            </div>
+                            <div class="producto__opt">
+                                <p>DOC</p>
+                                <select id="doc">
+                                    <option value="0.81">Muy bajo</option>
+                                    <option value="0.91">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="1.11">Alto</option>
+                                    <option value="1.23">Muy alto</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="plataforma">
+                        <fieldset>
+                            <legend>Atributos de la plataforma</legend>
+                            <div class="producto__opt">
+                                <p>RTE</p>
+                                <select id="rte">
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="1.11">Alto</option>
+                                    <option value="1.29">Muy alto</option>
+                                    <option value="1.63">Extra alto</option>
+                                </select>
+                            </div>
+                            <div class="producto__opt">
+                                <p>RMP</p>
+                                <select id="rmp">
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="1.05">Alto</option>
+                                    <option value="1.17">Muy alto</option>
+                                    <option value="1.46">Extra alto</option>
+                                </select>
+                            </div>
+                            <div class="producto__opt">
+                                <p>VMC</p>
+                                <select id="vmc">
+                                    <option value="0.87">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="1.15">Alto</option>
+                                    <option value="1.30">Muy alto</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="personal">
+                        <fieldset>
+                        <legend>Atributos del personal</legend>
+                            <div class="producto__opt">
+                                <p>CAN</p>
+                                <select id="can">
+                                    <option value="1.42">Muy bajo</option>
+                                    <option value="1.19">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="0.85">Alto</option>
+                                    <option value="0.71">Muy alto</option>
+                                </select>
+                            </div>
+                            <div class="producto__opt">
+                                <p>EAPL</p>
+                                <select id="eapl">
+                                    <option value="1.22">Muy bajo</option>
+                                    <option value="1.10">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="0.88">Alto</option>
+                                    <option value="0.81">Muy alto</option>
+                                </select>
+                            </div>
+                            <div class="producto__opt">
+                                <p>CPRO</p>
+                                <select id="cpro">
+                                    <option value="1.34">Muy bajo</option>
+                                    <option value="1.15">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="0.88">Alto</option>
+                                    <option value="0.76">Muy alto</option>
+                                </select>
+                            </div>
+                            <div class="producto__opt">
+                                <p>CPER</p>
+                                <select id="cper">
+                                    <option value="1.29">Muy bajo</option>
+                                    <option value="1.12">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="0.90">Alto</option>
+                                    <option value="0.81">Muy alto</option>
+                                </select>
+                            </div>
+                            <div class="producto__opt">
+                                <p>EPLA</p>
+                                <select id="epla">
+                                    <option value="1.19">Muy bajo</option>
+                                    <option value="1.09">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="0.91">Alto</option>
+                                    <option value="0.85">Muy alto</option>
+                                </select>
+                            </div>
+                            <div class="producto__opt">
+                                <p>ELP</p>
+                                <select id="elp">
+                                    <option value="1.20">Muy bajo</option>
+                                    <option value="1.09">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="0.91">Alto</option>
+                                    <option value="0.84">Muy alto</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="proyecto">
+                        <fieldset>
+                        <legend>Atributos del proyecto</legend>
+                            <div class="producto__opt">
+                                <p>UHS</p>
+                                <select id="uhs">
+                                    <option value="1.17">Muy bajo</option>
+                                    <option value="1.09">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="0.90">Alto</option>
+                                    <option value="0.78">Muy alto</option>
+                                </select>
+                            </div>
+                            <div class="producto__opt">
+                                <p>RPL</p>
+                                <select id="rpl">
+                                    <option value="1.43">Muy bajo</option>
+                                    <option value="1.09">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="1.00">Alto</option>
+                                    <option value="1.00">Muy alto</option>
+                                </select>
+                            </div>
+                            <div class="producto__opt">
+                                <p>DMS</p>
+                                <select id="dms">
+                                    <option value="1.22">Muy bajo</option>
+                                    <option value="1.09">Bajo</option>
+                                    <option value="1.00" selected>Nominal</option>
+                                    <option value="0.93">Alto</option>
+                                    <option value="0.86">Muy alto</option>
+                                    <option value="0.80">Extra alto</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>  
+            </div>
+
+            <div class="contenedor">
+                <button id="calcular">Calcular</button>
+            </div>
+            
+            <div class="contenedor contenedor-ecuaciones">
+                <table class="ecuaciones">
+                    <tr class="titulo-ecuaciones">
+                        <td>Esfuerzo</td>
+                        <td>Tiempo de Desarrollo</td>
+                    </tr>
+                    <tr class="fila-ecuacion">
+                        <td>ESF = 2.94 x FEC x (KLDC)<sup>0.91 + SUM(Fi)/100</sup></td>
+                        <td>TDES = 3.67 x (ESF)<sup>0.28 + 0.2 * SUM(Fi)/100</sup></td>
+                    </tr>
+                </table>
+            </div>
+             
+            <div class="contenedor">
+                <div class="resultado">
+                    <div class="resultado-row">
+                        <div class="resultado-contenedor">
+                            <div class="__resultado">
+                                <p class="resultado-titulo">Tiempo de desarrollo:</p>
+                                <p id="tiempoDesarrollo"></p>
+                                <hr>
+                            </div>
+                            <div class="__resultado">
+                                <p class="resultado-titulo">Esfuerzo:</p>
+                                <p id="personasNecesarias"></p>
+                                <hr>
+                            </div>
+                            <div class="__resultado">
+                                <p class="resultado-titulo">Costo total del proyecto:</p>
+                                <p id="costoTotal"></p>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <div class="contenedor">
+            <button id="restablecer">Restablecer</button>
+        </div>           
+
+        </section>
+        <script type="text/javascript" src="js/script-cocomo2.js"></script>
+    </body>
+</html>

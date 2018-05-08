@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Software de Estimación</title>
+    <meta charset="utf-8">
+    <script src="jquery/jquery-3.1.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="contenedor">
+            <nav class="nav-main">
+                <ul>
+                    <li><a href="index.html">Básico</a></li>
+                    <li><a href="cocomoIntermedio.html">Intermedio</a></li>
+                    <li><a href="cocomoII.html">Cocomo II</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section>
+        <div class="contenedor contenedor-main">
+            <div class="titulo">
+                <h1>Cocomo Básico</h1>
+            </div>
+            <div class="instruccion">
+                <h2>Instrucciones</h2>
+                <p>1. Elegir modelo adecuado para el proyecto.</p>
+                <p>2. Ingresar miles de lineas de codigo (KLDC) y costo promedio por mes (CPM).</p>
+                <p>3. Calcular</p>
+            </div>
+            
+            <div class="opciones-contenedor">
+                <div class="organico" id="organico">
+                    <div class="tipo">
+                        <h3>Orgánico</h3>
+                    </div>
+                    <p>Proyectos de software pequeños y sencillos en los que trabajan pequeños equipos, con buena experiencia en la aplicación, sobre un conjunto de requisitos poco rígidos.</p>
+                </div>
+                <div class="moderado" id="moderado">
+                    <div class="tipo">
+                        <h3>Moderado</h3>
+                    </div>
+                    <p>Proyectos de software intermedios en tamaño y complejidad en los que equipos, con variados niveles de experiencia, deben satisfacer requisitos medio rígidos.</p>
+                </div>
+                <div class="embebido" id="embebido">
+                    <div class="tipo">
+                        <h3>Embebido o Empotrado</h3>
+                    </div>
+                    <p>Proyectos de software complejos que deben ser desarrollados en un conjunto de hardware, software y restricciones operativas muy restringido.
+                    <br>
+                    <br></p>
+                </div>
+            </div>
+
+            <div class="resultado">
+                <div class="resultado-row">
+                    <div class="__resultado entradas">
+                        <input type="number" name="" id="kldc" placeholder="KLDC" required>
+                    </div>
+                    <div class="__resultado entradas">
+                        <input type="number" name="" id="salario" placeholder="CPM" required>
+                    </div>
+                </div>
+                <button id="calcular">Calcular</button>
+            </div>
+        </div>
+
+        <div class="contenedor contenedor-ecuaciones">
+            <table class="ecuaciones">
+                <tr class="titulo-ecuaciones">
+                    <td>Modo de Desarrollo</td>
+                    <td>Esfuerzo</td>
+                    <td>Cronograma</td>
+                </tr>
+                <tr class="fila-organico">
+                    <td>Orgánico</td>
+                    <td>ESF = 2.4 x (KLDC)<sup>1.05</sup></td>
+                    <td>TDES = 2.5 x (ESF)<sup>0.38</sup></td>
+                </tr>
+                <tr class="fila-moderado">
+                    <td>Moderado</td>
+                    <td>ESF = 3.0 x (KLDC)<sup>1.12</sup></td>
+                    <td>TDES = 2.5 x (ESF)<sup>0.35</sup></td>
+                </tr>
+                <tr class="fila-empotrado">
+                    <td>Empotrado</td>
+                    <td>ESF = 3.6 x (KLDC)<sup>1.20</sup></td>
+                    <td>TDES = 2.5 x (ESF)<sup>0.32</sup></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="contenedor">
+            <div class="resultado">
+                <div class="resultado-row">
+                    <div class="resultado-contenedor">
+                        <div class="__resultado">
+                            <p class="resultado-titulo">Tiempo de desarrollo</p>
+                            <p id="tiempoDesarrollo"></p>
+                            <hr>
+                        </div>
+                        <div class="__resultado">
+                            <p class="resultado-titulo">Esfuerzo</p>
+                            <p id="personasNecesarias"></p>
+                            <hr>
+                        </div>
+                        <div class="__resultado">
+                            <p class="resultado-titulo">Costo total del proyecto</p>
+                            <p id="costoTotal"></p>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenedor">
+            <button id="restablecer">Restablecer</button>
+        </div>       
+    </section>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
