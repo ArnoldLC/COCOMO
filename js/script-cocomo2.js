@@ -51,31 +51,32 @@ calcular.addEventListener("click", function () {
   var esfuerzo = calcularEsfuerzo(lineasCodigo, factoresDeEscala, conductoresCosto);
   var tiempoDesarrollo = calcularTiempo(esfuerzo, factoresDeEscala);
   var costoTotalProyecto = esfuerzo * costo;
-  document.getElementById("tiempoDesarrollo").innerHTML = Math.ceil(tiempoDesarrollo.toFixed(2)) + " meses";
-  document.getElementById("personasNecesarias").innerHTML = Math.ceil(esfuerzo.toFixed(2)) + " personas -mes";
-  document.getElementById("costoTotal").innerHTML = costoTotalProyecto.toFixed(2) + " meses";
+  document.getElementById("tiempoDesarrollo").innerHTML = Number(tiempoDesarrollo).toFixed(2) + " meses";
+  document.getElementById("personasNecesarias").innerHTML = Number(esfuerzo).toFixed(2) + " personas -mes";
+  document.getElementById("costoTotal").innerHTML = Number(costoTotalProyecto).toFixed(2) + " soles";
 
-  $(".contenedor-instrucciones").toggle(300,"linear");
-  $(".contenedor-entradas").toggle(300,"linear");
-  $(".factores-escala").toggle(300,"linear");
-  $(".conductores-coste").toggle(300,"linear");
+  $(".contenedor-instrucciones").toggle(300, "linear");
+  $(".contenedor-entradas").toggle(300, "linear");
+  $(".factores-escala").toggle(300, "linear");
+  $(".conductores-coste").toggle(300, "linear");
   $(".resultado-contenedor").toggle(300, "linear");
   $("#calcular").toggle(300, "linear");
   $("#restablecer").toggle(300, "linear");
-  $(".contenedor-ecuaciones").toggle(300,"linear");
+  $(".contenedor-ecuaciones").toggle(300, "linear");
 
 });
 
 function calcularEsfuerzo(kldc, factoresEscala, fec) {
-  var exp = 0.91 + factoresEscala/100;
-  var esf = 2.94 * fec * Math.pow(kldc/1000, exp);
+  var exp = Number(0.91 + factoresEscala / 100).toFixed(2);
+  var esf = Number(2.94 * fec * Math.pow(kldc / 1000, exp)).toFixed(2);
+  console.log(esf)
   return esf;
 }
 
 function calcularTiempo(esfuerzo, factoresEscala) {
-  var exp = 0.28 + (0.2 * factoresEscala/100);
+  var exp = 0.28 + (0.2 * factoresEscala / 100);
   var tiempoDesarrollo = 3.67 * Math.pow(esfuerzo, exp);
-  
+
   return tiempoDesarrollo;
 }
 
@@ -98,7 +99,7 @@ function getValuesFEC() {
   dmsValue = Number(dms.options[dms.selectedIndex].value);
   elpValue = Number(elp.options[elp.selectedIndex].value);
 
-  var fec = rssValue + tbdValue + cprValue + ruseValue + docValue + rteValue + rmpValue + vmcValue + canValue + eplaValue + uhsValue + eaplValue + cproValue + cperValue + rplValue + dmsValue + elpValue;
+  var fec = rssValue * tbdValue * cprValue * ruseValue * docValue * rteValue * rmpValue * vmcValue * canValue * eplaValue * uhsValue * eaplValue * cproValue * cperValue * rplValue * dmsValue * elpValue;
 
   return fec;
 }
@@ -110,7 +111,8 @@ function getValuesEscala() {
   teamValue = Number(team.options[team.selectedIndex].value);
   pmatValue = Number(pmat.options[pmat.selectedIndex].value);
 
-  var factoresEscala = precValue + flexValue + reslValue + teamValue + pmatValue; 
+  var factoresEscala = precValue + flexValue + reslValue + teamValue + pmatValue;
+  console.log(factoresEscala)
 
   return factoresEscala;
 }
@@ -118,10 +120,10 @@ function getValuesEscala() {
 var restablecer = document.getElementById("restablecer");
 
 restablecer.addEventListener("click", function () {
-  $(".contenedor-instrucciones").toggle(300,"linear");
-  $(".contenedor-entradas").toggle(300,"linear");
-  $(".factores-escala").toggle(300,"linear");
-  $(".conductores-coste").toggle(300,"linear");
+  $(".contenedor-instrucciones").toggle(300, "linear");
+  $(".contenedor-entradas").toggle(300, "linear");
+  $(".factores-escala").toggle(300, "linear");
+  $(".conductores-coste").toggle(300, "linear");
   $("#calcular").toggle(300, "linear");
   $("#restablecer").toggle(300, "linear");
   $(".resultado-contenedor").toggle(false);
